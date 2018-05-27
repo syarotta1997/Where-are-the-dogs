@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/map.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta charset="utf-8">
+	    <title>Where are the dogs?</title>
+	    <link rel="stylesheet" href="/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+        <!-- Navbar (sit on top) -->
+        <div id = "logged" class="nav">
+            <ul>
+                <a>
+                    <img id=doglogo src=img/doglogo.png onclick="test_verify()">
+                </a>
+                <li><a id = "title" class="logo" style="display:none">Select a breed</a></li>
+                <li>
+                    <select id= "dropDownDest" class="dropbtn" style="display:none">Breed</select>
+                </li>
+                <li>
+                        <button id="show_dog" onclick="showDogList()" class="dropbtn" style="display:none">Doggies</button>
+                        <div id="myDropdown" class="dropdown-content"></div>
+                </li>
+                <li style="float:right">
+                        <button onclick="show_setting()" class="dropbtn" id="account" value="Account" style="display:none;margin-top:10%">Setting</button>
+                </li>
+                <li style="float:right">
+                    <button onclick="show_login()" class="dropbtn" id="lgnbtn" value="Login/SignUp">Login/SignUp</button>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="container" >
+        	<div id = "doglist" class="doglist">
+        		<div><h1>Doggies</h1><ul></ul></div>
+        		<div class = "return"><button onclick="hideDogList()" class="hidelistbtn">Return</button></div>
+        	</div>
+            <div id="map" class="map"></div>
+            <div id="accountpage" class="logindiv" style="display:none;width:50%;align-items: center;text-align:center;margin-top:80px;margin-left:25%">
+                <h2> Update Account Info </h2>
+                <form onsubmit="update_info()">
+                    <input id="nfname" name="f_name" type="text" placeholder="New First Name" required>
+                    <input id="nlname" name="l_name" type="text" placeholder="New Last Name" required>
+                    <input id="nemail" name="email" type="email" placeholder="New Email" required>
+                    <input id="npword" name="pass" type="password" placeholder="New Password" required>
+                    <input id="nzip" name="zip" type="text" placeholder="New Postal Code" required>
+                    <h2 style="text-align:center">Select your new dog breed:</h2>
+                    <select id= "acc_dropdown" class="dropbtn" style="margin-left:10%;width:80%">Breed</select>
+                    <input type="submit" name="submit" value="Submit" >
+                </form>
+                <button class="dropbtn" onclick="sign_out()" id="logoutbtn" value="Log out" style="margin-left:0">Log Out</button>
+                <button class="dropbtn" onclick="delete_user()" id="logoutbtn" value="Delete User" style="margin-left:0">Delete Account</button>
+                <button class="dropbtn" onclick="account_goback()" id="acc_goback" style="margin-left:0">Return</button>
+            </div>
+
+            <div id = "login" class="logindiv">
+                <div class ="registerdiv">
+                    <h2> Register </h2>
+                        <form onsubmit="register()">
+                            <input id="fname" name="f_name" type="text" placeholder="First Name" required>
+                            <input id="lname" name="l_name" type="text" placeholder="Last Name" required>
+                            <input id="email" name="email" type="email" placeholder="Email" required>
+                            <input id="user" name="user" type="text" placeholder="Username" required>
+                            <input id="pword" name="pass" type="password" placeholder="Password" required>
+                            <input id="zip" name="zip" type="text" placeholder="Postal Code" required>
+                            <h3 style="text-align:center">Select your dog breed:</h3>
+                            <select id= "reg_dropdown" class="dropbtn" style="width:90%;margin-left:5%">Breed</select>
+                            <input type="submit" name="submit" value="Submit" >
+                        </form>
+                </div>
+                <div class ="login_info_div">
+                    <h2> Login </h2>
+                        <form>
+                            <input type="text" placeholder="Username" name="user_login" id="login_username">
+                            <input type="password" placeholder="Password" name="pass_login" id="login_password">
+                            <input onclick="authenticate()" type="submit" name="submit" value="Login">
+                        </form>
+                </div>
+                <button id="login_back_to_map" onclick="login_goback()" value="Back to Dog Map">Back to Dog Map</button>
+                <a id="login_go_here"></a>
+            </div>
+        </div>
+
+		<script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7DCk1x1qnhX-z5aWICmzYN54_Zcrwu1w&callback=initMap"></script>
+        <script src="/navigator.js"></script>
+        <script src="/doglist.js"></script>
+        <script src="/login.js"></script>
+        <script src="/account.js"></script>
+    </body>
+</html>
