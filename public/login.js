@@ -46,6 +46,7 @@ function register(){
             },
             dataType:"json",
             error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
                 if (XMLHttpRequest.status == 401) {
                     alert('username taken');
                 } else if (XMLHttpRequest.status < 300 && XMLHttpRequest.status >= 200) {
