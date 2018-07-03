@@ -48,7 +48,9 @@ function register(){
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 if (XMLHttpRequest.status == 401) {
                     alert('username taken');
-                } else  {
+                } else if (XMLHttpRequest.status < 300 && XMLHttpRequest.status >= 200) {
+                    alert('You're now registered, welcome');
+                }else  {
                     alert('action failed, please try again later');
                 }
             },
@@ -76,6 +78,8 @@ function authenticate() {
                 alert('no such user');
             } else if (XMLHttpRequest.status == 401) {
                 alert('wrong password');
+            } else if (XMLHttpRequest.status < 300 && XMLHttpRequest.status >= 200){
+                alert('Login Success, welcome');
             } else  {
                 alert('action failed, please try again later');
             }
