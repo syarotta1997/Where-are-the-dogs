@@ -49,7 +49,7 @@ function register(){
                 if (XMLHttpRequest.status == 401) {
                     alert('username taken');
                 } else if (XMLHttpRequest.status < 300 && XMLHttpRequest.status >= 200) {
-                    alert('You're now registered, welcome');
+                    alert('You are now registered, welcome');
                 }else  {
                     alert('action failed, please try again later');
                 }
