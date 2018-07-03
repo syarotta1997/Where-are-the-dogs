@@ -46,11 +46,10 @@ function register(){
             },
             dataType:"json",
             error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.status);
                 if (XMLHttpRequest.status == 401) {
                     alert('username taken');
-                } else if (XMLHttpRequest.status < 300 && XMLHttpRequest.status >= 200) {
-                    alert('You are now registered, welcome');
+                } else if (XMLHttpRequest.status == 0) {
+                    alert('You are now registered');
                 }else  {
                     alert('action failed, please try again later');
                 }
@@ -79,9 +78,7 @@ function authenticate() {
                 alert('no such user');
             } else if (XMLHttpRequest.status == 401) {
                 alert('wrong password');
-            } else if (XMLHttpRequest.status < 300 && XMLHttpRequest.status >= 200){
-                alert('Login Success, welcome');
-            } else  {
+            }  else  {
                 alert('action failed, please try again later');
             }
       },
